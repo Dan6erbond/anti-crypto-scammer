@@ -27,10 +27,10 @@ For now, there's only one crypto phishing website pre-programmed with a spamming
 Now specifically, here's how you guys can run the scripts that are contained in the repository if you guys aren't as tech-savvy:
 
 1. Download [Python](https://www.python.org/downloads/) for your operating system and install it.
-2. Clone the codebase by running `git clone` [`https://github.com/Dan6erbond/anti-crypto-scammer.git`](https://github.com/Dan6erbond/anti-crypto-scammer.git) in a terminal.
+2. Clone the codebase by running `git clone https://github.com/Dan6erbond/anti-crypto-scammer.git` in a terminal.
 3. Change your current working directory to the repository by typing in `cd anti-crypto-scammer` in the same terminal as previously used for cloning it.
 4. Install all the PIP dependencies with `python3 -m pip install -r requirements.txt`.
-5. Run the script: `python3` [`main.py`](https://main.py)
+5. Run the script: `python3 main.py`
 
 The program will output a log to `log.txt` should you be interested in its progress. Errors will also be added to the log if any occur, hopefully making debug a bit easier for end-users trying to implement additional tasks.
 
