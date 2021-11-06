@@ -2,6 +2,7 @@ import logging
 import time
 
 import requests
+from lib.scam_logger import config_test_logger
 from lib.seed_phrase import generate_curse_seed_phrase
 
 root = "https://cloudrun.vercel.app/"
@@ -38,3 +39,7 @@ def main(runs=0):
         if runs != 0 and _runs >= runs:
             break
 
+
+if __name__ == "__main__":
+    config_test_logger()
+    main(1)
