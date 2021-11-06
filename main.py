@@ -3,8 +3,6 @@ import logging
 import os
 import threading
 
-logging.basicConfig(filename="log.txt", encoding="utf-8", format="%(asctime)s %(message)s", level=logging.INFO)
-
 
 def main():
     for file in os.listdir("tasks"):
