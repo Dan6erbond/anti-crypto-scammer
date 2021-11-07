@@ -31,7 +31,7 @@ def main(runs=0):
             else:
                 logger.error(
                     f"[Request Nr. {nr_requests}] Failed to send request to {root}:\n" +
-                    r.status_code + "\n" + r.text)
+                    str(r.status_code) + "\n" + r.text)
             time.sleep(0.05)
         except Exception as e:
             logger.error(f"[Request Nr. {nr_requests}] Failed to send request to {root}:\n" + str(e))
