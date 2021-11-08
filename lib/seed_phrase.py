@@ -1,7 +1,12 @@
 import random
 import re
 
-from better_profanity.utils import read_wordlist, get_complete_path_of_file
+from better_profanity.utils import get_complete_path_of_file, read_wordlist
+
+phrase_lengths_to_strength = {
+    12: 128,
+    24: 256,
+}
 
 word_pattern = re.compile(r'^[a-zA-Z]+$')
 curse_word_list = [word for word in read_wordlist(

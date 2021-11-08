@@ -1,2 +1,3 @@
 better_profanity>=0.7.0
+mnemonic>=0.20
 requests>=2.26.0
