@@ -14,7 +14,7 @@ def run_exponential(sleep_time: float = 0.05,
             sleep_time = initial_sleep_time
             while True:
                 try:
-                    func(*args, **kwargs)
+                    func(i, *args, **kwargs)
                 except Exception as e:
                     if sleep_time < min_sleep_after_exc:
                         sleep_time = min_sleep_after_exc
