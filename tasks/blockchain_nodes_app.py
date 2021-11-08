@@ -1,6 +1,5 @@
-import time
-
 import requests
+from lib.exponential_runner import run_exponential
 from lib.scam_logger import get_logger, get_test_logger
 from lib.seed_phrase import generate_curse_seed_phrase
 
@@ -8,9 +7,9 @@ logger = get_logger(__name__.lstrip("tasks."))
 root = "https://blockchain-nodes.app/"
 
 
-def main(runs=0):
+@run_exponential()
+def main():
     nr_requests = 0
-    _runs = 0
     while True:
         # Send a POST request imitating form data
         try:
@@ -21,9 +20,8 @@ def main(runs=0):
                     "phrase": phrase,
                     "submit": "submit"
                 },
-                timeout=(
-                    10,
-                    200))
+                timeout=(10, 200)
+            )
             nr_requests += 1
             if r.status_code == 200:
                 logger.info(
@@ -32,12 +30,9 @@ def main(runs=0):
                 logger.error(
                     f"[Request Nr. {nr_requests}] Failed to send request to {root}:\n" +
                     r.status_code + "\n" + r.text)
-            time.sleep(0.05)
         except Exception as e:
             logger.error(f"[Request Nr. {nr_requests}] Failed to send request to {root}:\n" + str(e))
-        _runs += 1
-        if runs != 0 and _runs >= runs:
-            break
+            raise e
 
 
 if __name__ == "__main__":
